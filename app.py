@@ -1,5 +1,6 @@
 import streamlit as st
 from openai import OpenAI
+import os
 
 # ==========================================
 # 1. 核心配置
@@ -21,6 +22,24 @@ with st.sidebar:
     st.markdown("### 🔓 解锁完整版")
     st.markdown("扫码或加V：**liao13689209126**") # ★★★ 改成你的微信号
     st.markdown("获取专属访问密码，仅需 9.9元/月")
+    
+    # 支付二维码展示
+    st.markdown("#### 📲 扫码购卡")
+    pay_tab1, pay_tab2 = st.tabs(["🟢 微信", "🔵 支付宝"])
+    with pay_tab1:
+        if os.path.exists("pay_wechat.png"):
+            st.image("pay_wechat.png")
+        elif os.path.exists("pay_wechat.jpg"):
+            st.image("pay_wechat.jpg")
+        else:
+            st.warning("⚠️ 请上传 pay_wechat.png")
+    with pay_tab2:
+        if os.path.exists("pay_alipay.png"):
+            st.image("pay_alipay.png")
+        elif os.path.exists("pay_alipay.jpg"):
+            st.image("pay_alipay.jpg")
+        else:
+            st.warning("⚠️ 请上传 pay_alipay.png")
     
     # 密码输入框
     secret_pass = st.text_input("请输入访问密码", type="password")
