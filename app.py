@@ -5,7 +5,7 @@ from openai import OpenAI
 # 1. 核心配置
 # ==========================================
 # 从云端保险箱读取密钥
-API_KEY = st.secrets["DEEPSEEK_API_KEY"] 
+API_KEY = st.secrets["DEEPSEEK_KEY"] 
 BASE_URL = "https://api.deepseek.com"
 
 client = OpenAI(api_key=API_KEY, base_url=BASE_URL)
